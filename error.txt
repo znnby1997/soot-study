@@ -1,0 +1,17 @@
+couldn't find class: SumCode
+Soot有自己的类路径，并且只从这个类路径下的jar包或目录读取文件。
+默认情况下，这个路径是空的，因此在上面这个例子中Soot没有找到类SumCode，
+尽管它们是存在的。添加当前目录". "
+couldn't find class: java.lang.Object
+为了对你的程序做些有意义的事情，
+Soot需要类型信息，尤其需要对局部变量重新构造类型。
+为了达到这个目的，Soot需要知道你想要处理的类的完整类型继承关系
+针对这个异常，有三种解决方法：
+    1. 将 rt.jar 添加到你的classpath
+    2. 添加 -pp 选项，此时假设你的 CLASSPATH 变量已经包含  rt.jar 或者 JAVA_HOME 已经被正确设置
+    3.  使用 -allow-phantom-refs 选项（不推荐）
+使用第二种方式（简单）java -cp soot.jar soot.Main -cp . -pp pers.znn.pendingCode.SumCode
+ 1.你当前的 CLASSPATH 变量的内容
+ 2."%JAVA_HOME%"/lib/rt.jar
+ 3.如果你是在整个程序范围内模式（whole-program mode）运行（即 -w 选项被启用），那么Soot会自动添加 "%JAVA_HOME%"/lib/jce.jar
+ 对于Windows用户要注意一点：Soot会正确对待驱动器号，但在Windows下的路径分隔符必须是一个反斜杠，而不是正斜杠

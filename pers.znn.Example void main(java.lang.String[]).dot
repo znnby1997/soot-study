@@ -1,0 +1,13 @@
+digraph "void main(java.lang.String[])" {
+    label="void main(java.lang.String[])";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @parameter0",];
+    "1" [label="$r2 = new pers.znn.Example",];
+    "0"->"1";
+    "2" [label="specialinvoke $r2.<init>()",];
+    "1"->"2";
+    "3" [label="$r2.run(\"bin/\")",];
+    "2"->"3";
+    "4" [style=filled,fillcolor=lightgray,label="return",];
+    "3"->"4";
+}

@@ -1,0 +1,11 @@
+一切命令需要在soot.jar包所在目录下方可执行，否则提示错误：找不到或无法加载主类 soot.Main
+java -cp soot.jar soot.Main启动soot主类，Main为soot的执行主类
+（通过--help查询soot相关命令操作）
+Input Options:
+-cp ARG -soot-class-path ARG -soot-classpath ARG
+
+仿照soot包中的Main类的调用，使用命令行生成指定java文件的控制流图
+java -cp soot.jar soot.tools.CFGViewer -cp . -pp pers.znn.pendingCode.SumCode
+查看Soot API后，找到soot.tools中的CFGViewer方法，可自动生成指定java字节流的控制流图文件
+
+使用graphviz将生成的sumcode.dot文件转化为sumcode.png文件
